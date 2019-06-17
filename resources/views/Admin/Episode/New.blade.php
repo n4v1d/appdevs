@@ -1,6 +1,6 @@
 @extends('Admin.Master')
 @section('title')
-     دوره جدید
+     اپیزود جدید
 @endsection
 @section('content')
 
@@ -16,33 +16,24 @@
 
                 <div class="card" style="padding: 10px">
                     <div class="card-header border-transparent">
-                        <h3 class="card-title"> دوره جدید</h3>
+                        <h3 class="card-title"> اپیزود جدید</h3>
 
 
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body ">
                         <div class="form-group">
-                            <label for="exampleInputEmail1"> عنوان دوره</label>
+                            <label for="exampleInputEmail1"> عنوان اپیزود</label>
                             <input type="text" class="form-control" name="name" id="exampleInputEmail1" >
                         </div>
 
-                        <div class="row text-center">
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">slug دوره</label>
-                                    <input type="text" class="form-control" name="slug" >
-                                </div>
-                            </div>
-
-
+                        <diw class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>نوع دوره</label>
+                                    <label>نوع اپیزود</label>
                                     <select name="type" class="form-control " >
                                         <option value="0">رایگان</option>
-                                        <option value="1">کاربر ویژه</option>
-                                        <option value="2">نقدی</option>
+                                        <option value="1">بسته به دوره </option>
                                     </select>
                                 </div>
                             </div>
@@ -50,16 +41,21 @@
 
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label>قیمت (0 برای رایگان) </label>
-                                    <input type="text" name="price" class="form-control input-lg" value="0">
+                                    <label>شماره</label>
+                                    <input  type="text" name="number" class="form-control input-lg" value="{{$course->episode->count()}}">
                                 </div>
                             </div>
 
-                        </div>
 
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>لینک ویدیو</label>
+                                    <input  type="text" name="video_url" class="form-control input-lg" >
+                                </div>
+                            </div>
 
-
-
+                    </div>
+                        </diw>
 
                         <div class="col-md-12">
                             <div class="form-group">

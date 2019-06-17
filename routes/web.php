@@ -49,5 +49,18 @@ Route::group(array('prefix' => 'admin','middleware' => ['auth']), function () {
 
         Route::get('/course/episode/{course}', 'CourseController@episods'); // ->  Delete Course
 
+                ///   Episode List ///
+
+        Route::get('/course/{course}/newEpisode', 'EpisodeController@create'); // ->  Create New Course Form
+        Route::post('/course/{course}/newEpisode', 'EpisodeController@store'); // ->  Store  Course Data Into Database
+
+        Route::get('/course/episode/{course}', 'CourseController@edit'); // ->  Edit Course Form
+        Route::post('/course/edit/{course}', 'CourseController@update'); // ->  Update  Course Data Into Database
+
+
+        Route::get('/course/episode/delete/{episode}', 'EpisodeController@destroy'); // ->  Delete Course
+
+        Route::get('/course/episode/{course}', 'CourseController@episods'); // ->  Delete Course
+
 
 });

@@ -14,7 +14,7 @@
                     <h3 class="card-title">آخرین دوره ها</h3>
 
                     <div class="card-tools">
-                         <a href="/admin/course/new" class="btn btn-sm btn-info"><span style="margin: 10px"> اپیزود جدید </span></a>
+                         <a href="/admin/course/{{ $course->id }}/newEpisode" class="btn btn-sm btn-info"><span style="margin: 10px"> اپیزود جدید </span></a>
 
                             <a href="/admin/course/search" class="btn btn-sm btn--round btn-info "> جستوجو </a>
 
@@ -26,6 +26,7 @@
                         <table class="table m-0">
                             <thead>
                             <tr>
+                                <th>شماره</th>
                                 <th>عنوان اپیزود</th>
                                 <th>تعداد بازدید</th>
                                 <th>نوع اپیزود</th>
@@ -33,6 +34,7 @@
                             </tr>
                             @foreach($course->episode as $episode)
                                 <tr>
+                                    <th>{{ $episode->number }}</th>
                                     <th>{{ $episode->name }}</th>
                                     <th>{{ $episode->visit }} </th>
                                     <td>
@@ -48,7 +50,7 @@
                                     </td>
                                     <td>
                                         <a href="/admin/course/{{$course->id}}/episode/{{$episode->id}}" class="badge badge-info"> ویرایش</a>
-                                        <a href="/admin/course/{{$course->id}}/delete/{{$episode->id}}" class="badge badge-danger">حذف</a>
+                                        <a href="/admin/course/episode/delete/{{$episode->id}}" class="badge badge-danger">حذف</a>
 
                                     </td>
                                 </tr>

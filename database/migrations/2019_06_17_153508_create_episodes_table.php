@@ -16,7 +16,7 @@ class CreateEpisodesTable extends Migration
         Schema::create('episodes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name");
-            $table->text('body');
+            $table->text('desc');
             $table->text('course_id');
             $table->text('video_url');
             $table->integer('number');

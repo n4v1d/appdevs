@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
 use App\Episode;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,10 @@ class EpisodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Course $course)
     {
         //
+        return view('Admin.Episode.new' , compact('course'));
     }
 
     /**
@@ -33,9 +35,22 @@ class EpisodeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Course $course , Request $request)
     {
         //
+        $epise= new Episode();
+        $epise->name = $request->get('name');
+        $epise->desc = $request->get('desc');
+        $epise->course_id = $course->id;
+        $epise->type = $request->get('type');
+        $epise->video_url = $request->get('video_url');
+        $epise->number = $request->get('number');
+
+        $epise->save();
+
+        return redirect("/admin/course/episode/$course->id");
+
+
     }
 
     /**
@@ -81,5 +96,8 @@ class EpisodeController extends Controller
     public function destroy(Episode $episode)
     {
         //
+        $episode->delete();
+
+        return redirect()->back();
     }
 }
