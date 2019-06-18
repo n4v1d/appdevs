@@ -62,5 +62,12 @@ Route::group(array('prefix' => 'admin','middleware' => ['auth']), function () {
 
         Route::get('/course/episode/{course}', 'CourseController@episods'); // ->  Delete Course
 
+                ///   Order List ///
+
+        Route::get('/order/new/{course}', 'OrderController@create'); // ->  Create New Course Form
+
+        Route::get('/order', 'OrderController@index'); // ->  Create New Course Form
+        Route::get('/order/delete/{order}', 'OrderController@destroy'); // ->  Create New Course Form
+        Route::get('/order/view/{order}', 'OrderController@show'); // ->  Create New Course Form
 
 });
